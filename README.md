@@ -1,2 +1,5 @@
-# spectral-clustering
-k-means and spectral-clustering
+# Spectral Clustering
++ K-means
++ Spectral Clustering
++ Precision, Recall and F-score
++ Sum of Squared Error (SSE)
