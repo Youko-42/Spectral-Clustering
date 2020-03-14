@@ -1,0 +1,35 @@
+import k_means
+import spectral
+import compare
+import numpy as np
+
+def main():
+    # Get data from txt
+    data = []
+    name = "cho"
+    file = open("../docs/cho.txt")
+    for line in file.readlines():
+        temp = line.strip().split("\t")
+        # String to Float
+        for i in range(len(temp)):
+            temp[i] = float(temp[i])
+        data.append(temp)
+
+    # Implement a clustering algorithm
+    k = 5
+    algorithm = input("The method you choose: ")
+    if (algorithm == "k-means"):
+        result = k_means.start(np.array(data), k)
+        print("Clustering result is:")
+        print(result)
+        compare.external(name, result, k)
+        compare.internal(data, result, k)
+    elif (algorithm == "spectral"):
+        result = spectral.start(np.array(data), k)
+        print("Clustering result is:")
+        print(result)
+        compare.external(name, result, k)
+        compare.internal(data, result, k)
+
+if __name__ == '__main__':
+    main()
